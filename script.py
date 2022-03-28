@@ -1,4 +1,3 @@
-from asyncio.log import logger
 from os import path, listdir, remove
 from datetime import datetime, timedelta
 
