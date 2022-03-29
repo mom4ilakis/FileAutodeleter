@@ -1,9 +1,10 @@
-from os import path, listdir, remove
+from os import path, listdir, remove, environ
 from datetime import datetime, timedelta
 
 import click
 
 DEFAULT_OFFSET = {'weeks': 1}
+DEFAULT_DIR = environ.get('AUTODELETER_DEF_DIR', 'H:\\Photos\\Import\\Sigma\\Converted\\')
 
 
 def get_files_older_than(dir_path, offset=None, date=None):
@@ -16,7 +17,7 @@ def get_files_older_than(dir_path, offset=None, date=None):
 
 
 def delete_old_files(dir_path, offset=None, date=None):
-    dir_path = dir_path or 'H:\\Photos\\Import\\Sigma\\Converted\\'
+    dir_path = dir_path or DEFAULT_DIR
 
     if not dir_path.endswith('\\'):
         dir_path += '\\'
