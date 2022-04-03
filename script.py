@@ -17,7 +17,6 @@ def get_files_older_than(dir_path, offset=None, date=None):
 
 
 def delete_old_files(dir_path, offset=None, date=None):
-    dir_path = dir_path or DEFAULT_DIR
 
     if not dir_path.endswith('\\'):
         dir_path += '\\'
@@ -39,7 +38,7 @@ def delete_old_files(dir_path, offset=None, date=None):
 
 
 @click.command()
-@click.option('--dir', prompt='Directory to scan', help='Directory to scan')
+@click.option('--dir', default=DEFAULT_DIR, prompt='Directory to scan', help='Directory to scan')
 @click.option('--offset', default=None, help='Type of offset: 1-weeks, 4-days etc')
 @click.option('--date', default=None, help='Date that is used to determine which files are old in isoformat')
 def delete_old_files_command(dir, offset, date):
