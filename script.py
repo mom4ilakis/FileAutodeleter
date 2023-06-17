@@ -17,7 +17,6 @@ def get_files_older_than(dir_path, offset=None, date=None):
 
 
 def delete_old_files(dir_path, offset=None, date=None):
-
     if not dir_path.endswith('\\'):
         dir_path += '\\'
 
